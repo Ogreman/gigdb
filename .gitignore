@@ -1,4 +1,5 @@
 .env
+.gitconfig
 
 # Python temp file
 *.py[cod]

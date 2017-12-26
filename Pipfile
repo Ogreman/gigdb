@@ -12,6 +12,10 @@ python_version = "3.6"
 
 [packages]
 
-flask = "*"
-gunicorn = "*"
+flask = "==0.12.2"
+flask-sqlalchemy = "==2.3.2"
+gunicorn = "==19.7.1"
 "psycopg2" = "==2.6.1"
+sqlalchemy-utils = "==0.32.14"
+sqlalchemy = "==1.1.10"
+structlog = "*"

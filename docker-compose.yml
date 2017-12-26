@@ -9,5 +9,16 @@ services:
     environment:
       - APP_SETTINGS=config.StagingConfig
       - PORT=5000
+      - SQLALCHEMY_DATABASE_URI=postgres://postgres:postgres@db:5432/postgres
     ports:
       - "5000:5000"
+    depends_on:
+      - db
+
+  db:
+    container_name: postgres
+    image: postgres:9.6
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"

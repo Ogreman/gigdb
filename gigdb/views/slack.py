@@ -49,7 +49,7 @@ def not_bots(func):
     return wraps
 
 
-@slack_blueprint.route('', methods=['POST'])
+@slack_blueprint.route('', methods=['GET'])
 @slack_check
 def album_count():
     return '', 200
