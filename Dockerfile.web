@@ -1,0 +1,12 @@
+FROM python:3.6
+
+RUN pip install -U pipenv==9.0.1
+
+ADD . /code
+WORKDIR /code
+
+RUN pipenv install --deploy --system
+
+EXPOSE 5000
+
+CMD ["sh", "docker-entrypoint.sh"]

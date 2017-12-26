@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+
+  gigdb:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    environment:
+      - APP_SETTINGS=config.StagingConfig
+      - PORT=5000
+    ports:
+      - "5000:5000"
