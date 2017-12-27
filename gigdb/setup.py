@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 
 import flask
+import flask_migrate
 from sqlalchemy import event, DDL
 
 from gigdb.models import db
@@ -26,13 +27,9 @@ def create_app():
     
     app = flask.Flask(__name__, template_folder=TEMPLATE_DIR)
     app.config.from_object(os.environ['APP_SETTINGS'])
-
-    from gigdb.models.bands import Band
-
-    with app.app_context():
-        db.init_app(app)
-        event.listen(db.metadata, 'before_create', DDL('CREATE SCHEMA IF NOT EXISTS gigsvc'))
-        db.create_all()
+    
+    db.init_app(app)
+    flask_migrate.Migrate(app, db)
 
     add_blueprints(app)
 

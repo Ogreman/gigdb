@@ -14,7 +14,7 @@ class Config(object):
         user_id for key, user_id in os.environ.items()
         if key.startswith('ADMIN_ID')
     ]
-    SQLALCHEMY_DATABASE_URI = os.getenv("SQLALCHEMY_DATABASE_URI",
+    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL",
                                         "postgres://postgres:postgres@localhost:5432/postgres")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True  # This handles session rollback on exception and commit on success,
